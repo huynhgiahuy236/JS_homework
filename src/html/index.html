@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_HomeWork</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/output.css">
+</head>
+
+<body class="bg-blue-200">
+    <div class="container max-w-[50%] mx-auto mt-10 bg-[#1B3C53] rounded-xl flex">
+        <div class="content-left p-5 shadow-xl bg-[#628141] rounded-s-xl  w-[15%] grid">
+            <div class="grid h-[40%] gap-5">
+                <button onclick="showBai(1,this)"
+                    class="btn px-6 py-2 rounded-sm text-white shadow-xl cursor-pointer 
+                    ">
+                    <i class="fa-solid fa-briefcase pr-4"></i>Bài 1
+                </button>
+
+                <button onclick="showBai(2,this)"
+                    class="btn px-6 py-2 rounded-sm text-white shadow-xl cursor-pointer bg-[#8BAE66]">
+                    <i class="fa-solid fa-briefcase pr-1"></i>Bài 2
+                </button>
+
+                <button onclick="showBai(3,this)"
+                    class="btn px-6 py-2 rounded-sm text-white shadow-xl cursor-pointer bg-[#8BAE66]">
+                    <i class="fa-solid fa-briefcase pr-4"></i>Bài 3
+                </button>
+
+                <button onclick="showBai(4,this)"
+                    class="btn px-6 py-2 rounded-sm text-white shadow-xl cursor-pointer bg-[#8BAE66]">
+                    <i class="fa-solid fa-briefcase pr-4"></i>Bài 4
+                </button>
+
+                <button onclick="showBai(5,this)"
+                    class="btn px-6 py-2 rounded-sm text-white shadow-xl cursor-pointer bg-[#8BAE66]">
+                    <i class="fa-solid fa-briefcase pr-4"></i>Bài 5
+                </button>
+            </div>
+        </div>
+        <!-- Bai 1 -->
+        <div class="content-right w-[85%] " id="bai1">
+            <div
+                class="title bg-[#234C6A] mt-5 w-[80%] py-2 mx-auto rounded-sm shadow-lg text-[#F4F4F4] text-xl font-medium text-center">
+                Bài tập về nhà JS</div>
+            <div class="right-content m-5">
+                <p class="text-white text-2xl"><i class="fa-solid fa-money-bill-1 pr-10"></i>Tính tiền lương nhân
+                    viên </p>
+                <ul class="list-disc text text-white text-lg ml-15 mt-2">
+                    <li>Lương của bạn được tính theo công thức</li>
+                    <li>Lương = Lương 1 ngày * Số ngày</li>
+                    <li>Note: Lương 1 ngày = 100.000, số ngày trên 0</li>
+                </ul>
+                <div class="grid mt-10 p-3  gap-4 items-center bg-[#234C6A] rounded-lg">
+                    <label for="ngaylamviec" class="text-white">Nhập vào số ngày làm việc</label>
+                    <input type="number" id="ngaylamviec" placeholder="Số ngày làm việc"
+                        class=" bg-[#F4F4F4] text-[#005461]  p-3 rounded-lg focus:outline-none cursor-pointer shadow-lg"
+                        required>
+
+                    <button id="btn_Luong"
+                        class="py-2 px-5 bg-[#8BAE66] text-white rounded-lg focus:text-[#8BAE66] focus:bg-[#EBD5AB] cursor-pointer text-lg font-medium w-44 mx-auto">Tính
+                        tiền lương</button>
+
+                    <p id="tienluong" class="text-[#234C6A] p-3 text-center rounded-lg bg-white text-lg font-normal">Số
+                        tiền lương của bạn
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Bai 2 -->
+        <div class="content-right w-[85%] hidden " id="bai2">
+            <div
+                class="title bg-[#234C6A] mt-5 w-[80%] py-2 mx-auto rounded-sm shadow-lg text-[#F4F4F4] text-xl font-medium text-center">
+                Bài tập về nhà JS</div>
+            <div class="right-content m-5">
+                <p class="text-white text-2xl"><i class="fa-solid fa-divide pr-10"></i>Tính giá trị trung
+                    bình </p>
+                <ul class="list-disc text text-white text-lg ml-15 mt-2">
+                    <li>Nhập vào 5 chữ số</li>
+                    <li>Giá trị trung bình được tính theo công thức</li>
+                    <li>Giá trị = (number 1 + number 2 + ... + number 5) / 5</li>
+                </ul>
+                <div class="grid grid-cols-2 mt-10 p-3  gap-4 items-center bg-[#234C6A] rounded-lg">
+                    <label for="num1" class="text-white">Nhập vào số thứ nhất</label>
+                    <input type="number" id="num1" placeholder="Số thứ nhất"
+                        class=" bg-[#F4F4F4] text-[#005461]  p-3 rounded-lg focus:outline-none cursor-pointer shadow-lg"
+                        required>
+                    <label for="num2" class="text-white">Nhập vào số thứ hai</label>
+                    <input type="number" id="num2" placeholder="Số thứ hai"
+                        class=" bg-[#F4F4F4] text-[#005461]  p-3 rounded-lg focus:outline-none cursor-pointer shadow-lg"
+                        required>
+                    <label for="num3" class="text-white">Nhập vào số thứ ba</label>
+                    <input type="number" id="num3" placeholder="Số thứ ba"
+                        class=" bg-[#F4F4F4] text-[#005461]  p-3 rounded-lg focus:outline-none cursor-pointer shadow-lg"
+                        required>
+                    <label for="num4" class="text-white">Nhập vào số thứ tư</label>
+                    <input type="number" id="num4" placeholder="Số thứ tư"
+                        class=" bg-[#F4F4F4] text-[#005461]  p-3 rounded-lg focus:outline-none cursor-pointer shadow-lg"
+                        required>
+                    <label for="num5" class="text-white">Nhập vào số thứ năm</label>
+                    <input type="number" id="num5" placeholder="Số thứ năm"
+                        class=" bg-[#F4F4F4] text-[#005461]  p-3 rounded-lg focus:outline-none cursor-pointer shadow-lg"
+                        required>
+
+
+                    <button id="btnTrungBinh"
+                        class="py-2 px-5 bg-[#8BAE66] text-white rounded-lg focus:text-[#8BAE66] focus:bg-[#EBD5AB] cursor-pointer text-lg font-medium w-44 ">Tính
+                        giá trị</button>
+
+                    <p id="tinhTrungBinh"
+                        class="text-[#234C6A] p-3 text-center rounded-lg bg-white text-lg font-normal">Giá trị trung
+                        bình của năm chữ số
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Bai 3 -->
+        <div class="content-right w-[85%] hidden" id="bai3">
+            <div
+                class="title bg-[#234C6A] mt-5 w-[80%] py-2 mx-auto rounded-sm shadow-lg text-[#F4F4F4] text-xl font-medium text-center">
+                Bài tập về nhà JS</div>
+            <div class="right-content m-5">
+                <p class="text-white text-2xl"><i class="fa-solid fa-arrow-rotate-right pr-10"></i>Quy đổi tiền từ USD
+                    sang VND </p>
+                <ul class="list-disc text text-white text-lg ml-15 mt-2">
+                    <li>Quy đổi tiền được tính theo công thức</li>
+                    <li>Tiền = Số USD * tỷ giá hiện tại</li>
+                    <li>Note: Tỷ giá hiện tại là 26.294, số lượng quy đổi trên 0</li>
+                </ul>
+                <div class="grid mt-10 p-3  gap-4 items-center bg-[#234C6A] rounded-lg">
+                    <label for="soluongUSD" class="text-white">Nhập vào số USD</label>
+                    <input type="number" id="soluongUSD" placeholder="Số USD cần quy đổi"
+                        class=" bg-[#F4F4F4] text-[#005461]  p-3 rounded-lg focus:outline-none cursor-pointer shadow-lg"
+                        required>
+
+
+                    <button id="btnQuyDoi"
+                        class="py-2 px-5 bg-[#8BAE66] text-white rounded-lg focus:text-[#8BAE66] focus:bg-[#EBD5AB] cursor-pointer text-lg font-medium w-44 mx-auto">Tính
+                        tiền lương</button>
+
+                    <p id="tienQuyDoi" class="text-[#234C6A] p-3 text-center rounded-lg bg-white text-lg font-normal">Số
+                        tiền lương của bạn
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Bai 4 -->
+        <div class="content-right w-[85%] hidden" id="bai4">
+            <div
+                class="title bg-[#234C6A] mt-5 w-[80%] py-2 mx-auto rounded-sm shadow-lg text-[#F4F4F4] text-xl font-medium text-center">
+                Bài tập về nhà JS</div>
+            <div class="right-content m-5">
+                <p class="text-white text-2xl"><i class="fa-solid fa-calculator pr-10"></i>Tính chu vi và diện
+                    tích</p>
+                <ul class="list-disc text text-white text-lg ml-15 mt-2">
+                    <li>Chu vi và diện tích được tính theo công thức</li>
+                    <li>Chu vi = (Chiều dài + Chiều rộng) * 2</li>
+                    <li>Diện tích = Chiều dài * Chiều rộng</li>
+                    <li>Note: Kích thước chiều dài và rộng trên 0 </li>
+                </ul>
+                <div class="grid mt-10 p-3  gap-4 items-center bg-[#234C6A] rounded-lg">
+                    <label for="width" class="text-white">Nhập vào chiều dài</label>
+                    <input type="number" id="width" placeholder="Chiều dài"
+                        class=" bg-[#F4F4F4] text-[#005461]  p-3 rounded-lg focus:outline-none cursor-pointer shadow-lg"
+                        required>
+
+                    <label for="height" class="text-white">Nhập vào chiều rộng</label>
+                    <input type="number" id="height" placeholder="Chiều rộng"
+                        class=" bg-[#F4F4F4] text-[#005461]  p-3 rounded-lg focus:outline-none cursor-pointer shadow-lg"
+                        required>
+
+                    <button id="btnHCN"
+                        class="py-2 px-5 bg-[#8BAE66] text-white rounded-lg focus:text-[#8BAE66] focus:bg-[#EBD5AB] cursor-pointer text-lg font-medium w-60 mx-auto">Tính
+                        diện tích và chu vi
+                    </button>
+                    <div class="grid grid-cols-2 gap-3">
+                        <span id="dienTich"
+                            class="text-[#234C6A] p-3 text-center rounded-lg bg-white text-lg font-normal">Diện
+                            tích
+                        </span>
+                        <span id="chuVi"
+                            class="text-[#234C6A] p-3 text-center rounded-lg bg-white text-lg font-normal ">Chu
+                            vi
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Bai 5 -->
+        <div class="content-right w-[85%] hidden" id="bai5">
+            <div
+                class="title bg-[#234C6A] mt-5 w-[80%] py-2 mx-auto rounded-sm shadow-lg text-[#F4F4F4] text-xl font-medium text-center">
+                Bài tập về nhà JS</div>
+            <div class="right-content m-5">
+                <p class="text-white text-2xl"><i class="fa-solid fa-plus pr-10"></i>Tính tổng hai ký số
+                </p>
+                <ul class="list-disc text text-white text-lg ml-15 mt-2">
+                    <li>Tổng hai kí số được tính theo công thức</li>
+                    <li>Số = Số hàng chục + Số hàng đơn vị</li>
+                    <li>Note: Số có hai chữ số (-9 > n và n > 9)</li>
+                </ul>
+                <div class="grid mt-10 p-3  gap-4 items-center bg-[#234C6A] rounded-lg">
+                    <label for="num" class="text-white">Nhập vào số có hai chữ số</label>
+                    <input type="number" id="num" placeholder="Số có hai chữ số"
+                        class=" bg-[#F4F4F4] text-[#005461]  p-3 rounded-lg focus:outline-none cursor-pointer shadow-lg"
+                        required>
+
+                    <button id="btnKySo"
+                        class="py-2 px-5 bg-[#8BAE66] text-white rounded-lg focus:text-[#8BAE66] focus:bg-[#EBD5AB] cursor-pointer text-lg font-medium w-44 mx-auto">Tính
+                        tổng</button>
+
+                    <p id="tinhTong" class="text-[#234C6A] p-3 text-center rounded-lg bg-white text-lg font-normal">Tổng
+                        hai kí số
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/index.js"></script>
+</body>
+
+</html>
