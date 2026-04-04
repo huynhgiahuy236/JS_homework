@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập JS buổi 13</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/output.css">
+</head>
+
+<body class="bg-blue-200">
+    <div class="content max-w-[60%] mx-auto bg-[#F8F3E1] mt-10 rounded-lg p-5 flex gap-5 ">
+        <div class="left ">
+            <div class="grid gap-5 bg-[#41431B] w-full p-7  rounded-lg ">
+                <button onclick="showBai(1,this)"
+                    class="btn px-10 text-nowrap py-3 rounded-sm text-white shadow-xl cursor-pointer bg-[#AEB784]">
+                    <i class="fa-solid fa-briefcase pr-4"></i>Bài 1
+                </button>
+                <button onclick="showBai(2,this)"
+                    class="btn px-10 py-3 rounded-sm text-white shadow-xl cursor-pointer bg-[#AEB784]">
+                    <i class="fa-solid fa-briefcase pr-1"></i>Bài 2
+                </button>
+                <button onclick="showBai(3,this)"
+                    class="btn px-10 py-3 rounded-sm text-white shadow-xl cursor-pointer bg-[#AEB784]">
+                    <i class="fa-solid fa-briefcase pr-4"></i>Bài 3
+                </button>
+                <button onclick="showBai(4,this)"
+                    class="btn px-10 py-3 rounded-sm text-white shadow-xl cursor-pointer bg-[#AEB784]">
+                    <i class="fa-solid fa-briefcase pr-4"></i>Bài 4
+                </button>
+            </div>
+        </div>
+        <!-- Bai 1: Tinh diem sinh vien -->
+        <div class="right bg-[#E3DBBB] w-full rounded-lg p-5" id="bai1">
+            <h1 class="text-3xl font-medium text-center bg-[#41431B] text-[#AEB784] py-2 rounded-lg mb-5">Bài tập JS
+                buổi 13</h1>
+            <div class="right-content">
+                <div class="right-title flex gap-5 text-3xl text-[#41431B] mb-5">
+                    <span><i class="fa-solid fa-user-graduate"></i></span>
+                    <h1>Quản lí sinh viên</h1>
+                </div>
+                <div class="note mb-10">
+                    <ul class="text-xl bg-white rounded-lg p-5 ">
+                        <li>Nhập vào điểm chuẩn và điểm từng môn.</li>
+                        <li>Chọn đối tượng và khu vực ưu tiên:</li>
+                        <div class="px-5 list-disc">
+                            <li>Điểm theo đối tượng 1 - 2 - 3 lần lượt là 2,5 - 1.5 - 1 điểm </li>
+                            <li>Điểm theo khu vực A - B - C lần lượt là 2 - 1 - 0.5 điểm </li>
+                        </div>
+                    </ul>
+                </div>
+                <form action="" id="formBai1">
+                    <div class="mb-3">
+                        <label for="diemChuan" class="block text-lg font-medium px-1 text-[#41431B]">Điểm chuẩn</label>
+                        <input type="number" name="diemChuan" id="diemChuan" placeholder="Nhập vào điểm chuẩn"
+                            class=" bg-white px-5 py-3 rounded-lg outline-none w-full" required>
+                        <p class="text-red-400 mt-2 hidden" id="error_chuan">Vui lòng nhập lại điểm chuẩn từ 1 -> 30</p>
+                    </div>
+                    <div class="grid grid-cols-3 gap-5">
+                        <div>
+                            <label for="monThuNhat" class="block text-lg font-medium px-1 text-[#41431B]">Môn thứ
+                                nhất</label>
+                            <input type="number" name="monThuNhat" id="monThuNhat" placeholder="Nhập điểm"
+                                class=" bg-white px-5 py-3 rounded-lg outline-none w-full" required>
+                            <p class="text-red-400 mt-2 hidden" id="error_diem1">Vui lòng nhập lại điểm từ 0 -> 10</p>
+                        </div>
+                        <div>
+                            <label for="monThuHai" class="block text-lg font-medium px-1 text-[#41431B]">Môn thứ
+                                hai</label>
+                            <input type="number" name="monThuHai" id="monThuHai" placeholder="Nhập điểm"
+                                class=" bg-white px-5 py-3 rounded-lg outline-none w-full" required>
+                            <p class="text-red-400 mt-2 hidden" id="error_diem2">Vui lòng nhập lại điểm từ 0 -> 10</p>
+                        </div>
+                        <div>
+                            <label for="monThuBa" class="block text-lg font-medium px-1 text-[#41431B]">
+                                Môn thứ ba</label>
+                            <input type="number" name="monThuBa" id="monThuBa" placeholder="Nhập điểm "
+                                class=" bg-white px-5 py-3 rounded-lg outline-none w-full" required>
+                            <p class="text-red-400 mt-2 hidden" id="error_diem3">Vui lòng nhập lại điểm từ 0 -> 10</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-10 mt-3">
+                        <div>
+                            <label for="khuVuc" class=" text-lg font-medium px-1 text-[#41431B]">Chọn khu vực</label>
+                            <select name="" id="khuVuc"
+                                class=" bg-white px-5 py-4 outline-none rounded-lg grid-cols-1 w-full" required>
+                                <option value="">Vui lòng chọn khu vực</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="doiTuong" class=" text-lg font-medium px-1 text-[#41431B]">Chọn đối
+                                tượng</label>
+                            <select name="" id="doiTuong"
+                                class=" bg-white px-5 py-4 outline-none rounded-lg grid-cols-1 w-full" required>
+                                <option value="">Vui lòng chọn đối tượng</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <button id="btnTinhDiem"
+                        class="mx-auto flex justify-center rounded-lg cursor-pointer  mt-10 py-3 px-10 bg-[#41431B] text-xl font-medium text-white focus:bg-[#F8F3E1] focus:text-black">Tính</button>
+                </form>
+                <p class=" bg-white mt-5 p-5 text-xl font-medium rounded-lg" id="resultsBai1"><i
+                        class="fa-solid fa-arrow-right mr-5"></i><span>Kết quả của bạn</span></p>
+            </div>
+        </div>
+        <!-- Bai 2: Tinh tien dien -->
+        <div class="right bg-[#E3DBBB] w-full rounded-lg p-5 hidden" id="bai2">
+            <h1 class="text-3xl font-medium text-center bg-[#41431B] text-[#AEB784] py-2 rounded-lg mb-5">Bài tập JS
+                buổi 13</h1>
+            <div class="right-content">
+                <div class="right-title flex gap-5 text-3xl text-[#41431B] mb-5">
+                    <span><i class="fa-solid fa-bolt"></i></span>
+                    <h1>Tính tiền điện</h1>
+                </div>
+                <div class="note mb-10">
+                    <ul class="text-xl bg-white rounded-lg p-5 ">
+                        <li>Nhập vào số Kw bạn đã dùng</li>
+                        <li>Tiền được tính theo các hạn mức vượt khác nhau:</li>
+                        <div class="px-5 list-disc">
+                            <li>50Kw đầu - 50Kw kế tiếp - 100kw kế tiếp - 150kw kế tiếp - còn lại </li>
+                            <li>500 - 650 - 850 - 1100 - 1300 (d/Kw)</li>
+                        </div>
+                    </ul>
+                </div>
+                <form action="" id="formBai2">
+                    <div class="mb-3">
+                        <label for="nameDien" class="block text-lg font-medium px-1 text-[#41431B]">Họ và tên</label>
+                        <input type="text" name="nameDien" id="nameDien" placeholder="VD: Nguyễn Văn A"
+                            class=" bg-white px-5 py-3 rounded-lg outline-none w-full" required>
+                        <p class="text-red-400 mt-2 hidden" id="errorNameDien">Vui lòng nhập tên không chứa số và ký tự
+                            đặt biệt</p>
+                    </div>
+                    <label for="soKW" class="block text-lg font-medium px-1 text-[#41431B]">Số Kw</label>
+                    <input type="number" name="soKW" id="soKW" placeholder="VD: 11000"
+                        class=" bg-white px-5 py-3 rounded-lg outline-none w-full" required>
+                    <p class="text-red-400 mt-2 hidden" id="errorDien">Vui lòng nhập số KW lớn hơn 0</p>
+                    <button id="btnTienDien"
+                        class="mx-auto flex justify-center rounded-lg cursor-pointer focus:bg-[#F8F3E1] focus:text-black mt-10 py-3 px-10 bg-[#41431B] text-xl font-medium text-white">Tính</button>
+                </form>
+                <p class="text-black bg-white mt-5 p-5 text-xl font-medium rounded-lg"><i
+                        class="fa-solid fa-arrow-right mr-5"></i><span id="resultsBai2">Kết quả của bạn</span></p>
+            </div>
+        </div>
+        <!-- Bai 3: tinh thue thu nhap ca nhan -->
+        <div class="right bg-[#E3DBBB] w-full rounded-lg p-5 hidden" id="bai3">
+            <h1 class="text-3xl font-medium text-center bg-[#41431B] text-[#AEB784] py-2 rounded-lg mb-5">Bài tập JS
+                buổi 13</h1>
+            <div class="right-content">
+                <div class="right-title flex gap-5 text-3xl text-[#41431B] mb-5">
+                    <span><i class="fa-solid fa-address-book"></i></span>
+                    <h1>Tính thuế thu nhập cá nhân</h1>
+                </div>
+                <div class="note mb-10">
+                    <ul class="text-xl bg-white rounded-lg p-5 ">
+                        <li>Nhập vào tên tên, tổng thu nhập năm, số
+                            người phụ thuộc</li>
+                        <li>Thuế được tính theo công thức</li>
+                        <div class="px-5 list-disc">
+                            <li>Thu nhập chịu thuế = Tổng thu nhập năm - 4tr- Số người phụ thuộc * 1.6tr</li>
+                        </div>
+                    </ul>
+                </div>
+                <form action="" id="formBai3">
+                    <div class="mb-3">
+                        <label for="nameThue" class="block text-lg font-medium px-1 text-[#41431B]">Họ và tên</label>
+                        <input type="text" name="nameThue" id="nameThue" placeholder="VD: Nguyễn Văn A"
+                            class=" bg-white px-5 py-3 rounded-lg outline-none w-full" required>
+                        <p class="text-red-400 mt-2 hidden" id="errorNameThue">Vui lòng nhập tên không chứa số và ký tự
+                            đặt biệt</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-5">
+                        <div>
+                            <label for="tongThuNhap" class="block text-lg font-medium px-1 text-[#41431B]">Thu nhập
+                                trong năm</label>
+                            <input type="number" name="tongThuNhap" id="tongThuNhap" placeholder="VD: 1000000"
+                                class=" bg-white px-5 py-3 rounded-lg outline-none w-full" required>
+                            <p class="text-red-400 mt-2 hidden" id="errorThuNhap">Thu nhập trong năm phải lớn hơn 0
+                            </p>
+                        </div>
+                        <div>
+                            <label for="nguoiPhuThuoc" class="block text-lg font-medium px-1 text-[#41431B]">Số người
+                                phụ
+                                thuộc</label>
+                            <input type="number" name="nguoiPhuThuoc" id="nguoiPhuThuoc" placeholder="VD: 5"
+                                class=" bg-white px-5 py-3 rounded-lg outline-none w-full" required>
+                            <p class="text-red-400 mt-2 hidden" id="errorPhuThuoc">Số người phụ thuộc phải từ 0 trở lên
+                            </p>
+                        </div>
+                    </div>
+                    <button id="btnTinhThue"
+                        class="mx-auto flex justify-center rounded-lg cursor-pointer  mt-10 py-3 px-10 bg-[#41431B] text-xl font-medium text-white focus:bg-[#F8F3E1] focus:text-black">Tính</button>
+                </form>
+                <p class="text-black bg-white mt-5 p-5 text-xl font-medium rounded-lg"><i
+                        class="fa-solid fa-arrow-right mr-5"></i><span id="resultsBai3">Kết quả của bạn</span></p>
+            </div>
+        </div>
+        <!-- Bai 4: tinh tien cap -->
+        <div class="right bg-[#E3DBBB] w-full rounded-lg p-5 hidden" id="bai4">
+            <h1 class="text-3xl font-medium text-center bg-[#41431B] text-[#AEB784] py-2 rounded-lg mb-5">Bài tập JS
+                buổi 13</h1>
+            <div class="right-content">
+                <div class="right-title flex gap-5 text-3xl text-[#41431B] mb-5">
+                    <span><i class="fa-solid fa-calculator"></i></span>
+                    <h1>Tính tiền cáp</h1>
+                </div>
+                <div class="note mb-10">
+                    <ul class="text-xl bg-white rounded-lg p-5 ">
+                        <li>Nhập vào Mã khách hàng, loại khách hàng, số kết nối(chỉ dành cho doanh nghiệp), số kênh
+                            cao cấp</li>
+                        <li>1. Nhà dân: <br>
+                            <div class="px-5">
+                                • Phí xử lý hóa đơn: 4.5$ <br>
+                                • Phí dịch vụ cơ bản: 20.5$ <br>
+                                • Thuê kênh cao cấp: 7.5$ / kênh <br>
+                            </div>
+                            2. Doanh nghiệp <br>
+                            <div class="px-5">
+                                • Phí xử lý hóa đơn: 15$ <br>
+                                • Phí dịch vụ cơ bản: 75$ cho tổng 10 kết nối đầu, mỗi kết nối thêm 5$ / kết nối <br>
+                                • Thuê kênh cao cấp: 50$ / kênh
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <form action="" id="formBai4">
+                    <div class="grid grid-cols-2 gap-5">
+                        <div class="mb-3">
+                            <label for="maKhachHang" class="block text-lg font-medium px-1 text-[#41431B]">Mã khách
+                                hàng</label>
+                            <input type="text" name="maKhachHang" id="maKhachHang" placeholder="VD: H567AB781"
+                                class=" bg-white px-5 py-3.5 rounded-lg outline-none w-full" required>
+                        </div>
+                        <div>
+                            <label for="loaiKhachHang" class=" text-lg font-medium px-1 text-[#41431B]">Chọn loại khách
+                                hàng</label>
+                            <select name="" id="loaiKhachHang"
+                                class=" bg-white px-5 py-4 outline-none rounded-lg grid-cols-1 w-full " required>
+                                <option value="" class="">Vui lòng chọn loại khách hàng</option>
+                                <option value="nhaDan">Nhà Dân</option>
+                                <option value="doanhNghiep">Doanh Nghiệp</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="soKenh" class="block text-lg font-medium px-1 text-[#41431B]">Số kênh cao
+                            cấp</label>
+                        <input type="number" name="soKenh" id="soKenh" placeholder="VD: 10"
+                            class=" bg-white px-5 py-3.5 rounded-lg outline-none w-full" required>
+                        <p class="text-red-400 mt-2 hidden" id="errorSoKenh">Số kênh phải tối thiểu phải bằng 0
+                        </p>
+                    </div>
+                    <div class="mb-3 hidden" id="doanhNghiepKetNoi">
+                        <label for="soKetNoi" class="block text-lg font-medium px-1 text-[#41431B]">Số kết nối
+                        </label>
+                        <input type="number" name="soKetNoi" id="soKetNoi" placeholder="VD: 10"
+                            class=" bg-white px-5 py-3.5 rounded-lg outline-none w-full">
+                        <p class="text-red-400 mt-2 hidden" id="errorSoKetNoi">Số kết nối phải tối thiểu phải bằng 0
+                        </p>
+                    </div>
+
+                    <button id="btnTinhCap"
+                        class="mx-auto flex justify-center rounded-lg cursor-pointer  mt-10 py-3 px-10 bg-[#41431B] text-xl font-medium text-white focus:bg-[#F8F3E1] focus:text-black">Tính</button>
+                </form>
+                <p class="text-black bg-white mt-5 p-5 text-xl font-medium rounded-lg"><i
+                        class="fa-solid fa-arrow-right mr-5"></i><span id="resultsBai4">Kết quả của bạn</span></p>
+            </div>
+        </div>
+    </div>
+    <script src="../js/index.js"></script>
+</body>
+
+</html>
