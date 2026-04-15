@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Array Practice</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+
+    <link rel="stylesheet" href="../css/output.css">
+</head>
+
+<body class="bg-gradient-to-br from-gray-200 to-gray-300 min-h-screen">
+
+    <!-- HEADER -->
+    <header class="max-w-5xl mx-auto mt-10 bg-white rounded-2xl shadow-xl p-8">
+
+        <h1 class="text-center text-3xl font-bold text-[#1F6F5F]">
+            JS ARRAY PRACTICE
+        </h1>
+
+        <div class="flex gap-4 mt-8">
+
+            <input type="number"
+                id="inputNumber"
+                class="flex-1 px-4 py-4 rounded-xl border focus:outline-none focus:ring-2 focus:ring-[#1F6F5F]"
+                placeholder="Nhập số..." />
+
+            <button id="btnAddNumber"
+                class="px-6 py-4 bg-[#1F6F5F] hover:bg-[#145144] text-white rounded-xl transition">
+                <i class="fa-solid fa-plus"></i> Add
+            </button>
+        </div>
+
+        <p id="errorArray" class="text-red-500 mt-2 hidden">Vui lòng nhập số</p>
+
+        <div id="resultsArray"
+            class="mt-6 bg-[#1F6F5F] text-white p-4 rounded-xl shadow flex items-center gap-3">
+            <i class="fa-solid fa-arrow-right text-yellow-300"></i>
+            <span>Danh sách số</span>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="max-w-5xl mx-auto mt-10 grid md:grid-cols-2 gap-6">
+
+        <!-- CARD TEMPLATE STYLE -->
+        <!-- 1 -->
+        <div class="card">
+            <button class="toggle">1. Tổng số dương</button>
+            <div class="content hidden">
+                <button id="btnTinhTong" class="btn">Tính</button>
+                <div id="resultsTinhTong" class="result">Kết quả</div>
+            </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="card">
+            <button class="toggle">2. Đếm số dương</button>
+            <div class="content hidden">
+                <button id="btnDemSo" class="btn">Đếm</button>
+                <div id="resultsDemSo" class="result">Kết quả</div>
+            </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="card">
+            <button class="toggle">3. Số nhỏ nhất</button>
+            <div class="content hidden">
+                <button id="btnTimSoNhoNhat" class="btn">Tìm</button>
+                <div id="resultsTimSoNhoNhat" class="result">Kết quả</div>
+            </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="card">
+            <button class="toggle">4. Số dương nhỏ nhất</button>
+            <div class="content hidden">
+                <button id="btnTimSoDuongNho" class="btn">Tìm</button>
+                <div id="resultsTimSoDuongNho" class="result">Kết quả</div>
+            </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="card">
+            <button class="toggle">5. Số chẵn cuối</button>
+            <div class="content hidden">
+                <button id="btnTimSoChanCuoi" class="btn">Tìm</button>
+                <div id="resultsTimSoChanCuoi" class="result">Kết quả</div>
+            </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="card">
+            <button class="toggle">6. Đổi chỗ</button>
+            <div class="content hidden">
+
+                <input id="inputViTriThuNhat" class="input" placeholder="Vị trí 1">
+                <input id="inputViTriThuHai" class="input" placeholder="Vị trí 2">
+
+                <button id="btnDoiCho" class="btn mt-2">Đổi</button>
+
+                <div id="resultsDoiCho" class="result">Kết quả</div>
+            </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="card">
+            <button class="toggle">7. Tăng dần</button>
+            <div class="content hidden">
+                <button id="btnTangDan" class="btn">Sort</button>
+                <div id="resultsTangDan" class="result">Kết quả</div>
+            </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="card">
+            <button class="toggle">8. Số nguyên tố</button>
+            <div class="content hidden">
+                <button id="btnSoNguyenTo" class="btn">Find</button>
+                <div id="resultsSoNguyenTo" class="result">Kết quả</div>
+            </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="card">
+            <button class="toggle">9. Số thực</button>
+            <div class="content hidden">
+
+                <input id="inputSoThuc" class="input" placeholder="Nhập số thực">
+
+                <button id="btnAddSoThuc" class="btn mt-2">Add</button>
+
+                <div id="resultsArraySoThuc" class="result">Danh sách</div>
+
+                <button id="btnSoNguyen" class="btn mt-2">Đếm số nguyên</button>
+
+                <div id="resultsSoNguyen" class="result">Kết quả</div>
+            </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="card">
+            <button class="toggle">10. So sánh âm/dương</button>
+            <div class="content hidden">
+                <button id="btnSoSanh" class="btn">Compare</button>
+                <div id="resultsSoSanh" class="result">Kết quả</div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- STYLE -->
+    <style>
+        .card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+        }
+
+        .toggle {
+            width: 100%;
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            background: #1F6F5F;
+            color: white;
+            cursor: pointer;
+        }
+
+        .content {
+            padding: 16px;
+            background: #f9fafb;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background: #2563eb;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+        }
+
+        .input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            background: #1F6F5F;
+            color: white;
+            border-radius: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+
+    <script src="../js/index.js"></script>
+
+</body>
+
+</html>
