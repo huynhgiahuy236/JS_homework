@@ -86,6 +86,26 @@ const checkErrorArray = (arr, el) => {
 
 // Show array header
 let arrayList = []
+
+// Dua cac ket qua ve trang thai ban dau khi mang thay doi
+const resetResults = (resultsList) => {
+    resultsList.forEach((results) => {
+        results.innerHTML = `<i class="fa-solid fa-hand-point-right"></i> K\u1ebft qu\u1ea3`
+    })
+}
+
+const resultsArrayList = [
+    el.resultsTinhTong,
+    el.resultsDemSo,
+    el.resultsTimSoNhoNhat,
+    el.resultsTimSoDuongNho,
+    el.resultsTimSoChanCuoi,
+    el.resultsDoiCho,
+    el.resultsTangDan,
+    el.resultsSoNguyenTo,
+    el.resultsSoSanh,
+]
+
 el.btnAddNumber.addEventListener("click", () => {
     const inputValue = el.inputNumber.value.trim()
 
@@ -98,17 +118,19 @@ el.btnAddNumber.addEventListener("click", () => {
 
     el.errorArray.classList.add("hidden")
     el.resultsArray.innerHTML = arrayList.join(", ")
+    resetResults(resultsArrayList)
 
     el.inputNumber.value = ""
 })
 // delete Array
-const deleteArray = (btn, arr, results) => {
+const deleteArray = (btn, arr, results, resultsList) => {
     btn.addEventListener("click", () => {
         arr.length = 0
+        resetResults(resultsList)
         results.innerHTML = `<i class="fa-solid fa-hand-point-right text-yellow-500"></i> Các số bạn đã chọn`
     })
 }
-deleteArray(el.btnDeleteArray, arrayList, el.resultsArray)
+deleteArray(el.btnDeleteArray, arrayList, el.resultsArray, resultsArrayList)
 // ham hien thi ket qua
 const textHTML = (results, variable) => {
     results.innerText = `Kết quả: ${variable}`
@@ -236,11 +258,12 @@ el.btnAddSoThuc.addEventListener("click", () => {
 
     el.errorArraySoThuc.classList.add("hidden")
     textHTML(el.resultsArraySoThuc, arraySoThuc.join(", "))
+    resetResults([el.resultsSoNguyen])
 
     el.inputSoThuc.value = ""
 })
 // delete array
-deleteArray(el.btnDeleteSoThuc, arraySoThuc, el.resultsArraySoThuc)
+deleteArray(el.btnDeleteSoThuc, arraySoThuc, el.resultsArraySoThuc, [el.resultsSoNguyen])
 
 // dem so luong so nguyen trong mang
 el.btnSoNguyen.addEventListener("click", () => {
