@@ -1,1 +1,63 @@
-@import 'tailwindcss'
+@import 'tailwindcss';
+
+/* Thu nho giao dien, giu nguyen bo cuc va mau sac */
+header,
+main {
+    max-width: 72%;
+}
+
+header {
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+header h1 {
+    font-size: 1.5rem;
+}
+
+header input,
+header button,
+header #resultsArray {
+    font-size: 1rem;
+}
+
+header input,
+header #resultsArray,
+header #btnDeleteArray {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+header #resultsArray {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+main {
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.content-left > div,
+.content-right > div {
+    margin-bottom: 1.5rem;
+}
+
+.closeUpList {
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+.closeUpList span {
+    font-size: 1rem;
+}
+
+.dataList {
+    padding: 1rem;
+}
+
+.dataList p,
+.dataList button,
+.dataList input {
+    font-size: 1rem;
+}
